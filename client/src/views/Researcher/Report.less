@@ -1,12 +1,12 @@
 @import "../../assets/style.less";
 
 #main-header {
-  color: #colors[text-secondary];
+  color: white;
   font-size: 3em;
   font-weight: bolder;
   margin-left: 5%;
   margin-bottom: 3%;
-  text-align: left;
+  text-align: center;
   padding-top: 20px;
 }
 
@@ -22,7 +22,7 @@
   width: 34%;
   border-radius: 80px;
   background: #colors[secondary];
-  font-size: 2vh;
+  font-size: 2.5vh;
   top: 3vh;
   left: 7vw;
   z-index: 1;
@@ -35,7 +35,7 @@
   margin: auto;
   width: 80vw;
   height: auto;
-  background: #colors[senary];
+  background: white;
   border-radius: 5px;
   border: 2px solid #colors[secondary];
 }
@@ -44,11 +44,11 @@
   height: 250px;
   width: 25vw;
   padding: 10px 20px;
-  background-color: #colors[tertiary];
-  color: #colors[text-primary];
+  background-color: #colors[secondary];
+  color: black;
   border-radius: 10px;
   border: none;
-  font-size: 2vw;
+  font-size: 2.5vh;
   font-weight: 600;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -56,6 +56,11 @@
   line-height: 3vw;;
   margin: 70px 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.377);
+}
+//Added a hover feature to change the background and font
+#route-button:hover{
+  background-color: #f7d560;
+  color:#colors[primary];
 }
 
 .parent{
@@ -65,7 +70,7 @@
 
 .child {
   width: 20%;
-  border: 2px solid #5babde;
+  border: 10px solid #5babde;
   background-color: #colors[tertiary];
   color: #colors[primary];
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.377);

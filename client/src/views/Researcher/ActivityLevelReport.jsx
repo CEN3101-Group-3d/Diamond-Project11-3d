@@ -321,12 +321,20 @@ const Filter = ({ setSearchParam, paramObj }) => {
   };
 
   const onUnitChange = async (e) => {
-    setselectedLs('');
+    //setselectedLs('');
+setselectedGrade('');
+setselectedUnit('');
+setselectedClassroom('');
+setselectedStudent('');
+setClassrooms([]);
+setLs([]);
+setStudents([]);
     const unit = e.target.value;
     if (unit) {
       setselectedUnit(unit);
       const unitRes = await getUnit(unit);
       setLs(unitRes.data.lesson_modules);
+setGrade(unitRes.data.grade)
     } else {
       setselectedUnit('');
       setLs([]);
@@ -334,7 +342,14 @@ const Filter = ({ setSearchParam, paramObj }) => {
   };
 
   const onClassroomChange = async (e) => {
-    setselectedStudent('');
+    //setselectedStudent('');
+setselectedLs('');
+setselectedGrade('');
+setselectedUnit('');
+setselectedClassroom('');
+setClassrooms([]);
+setLs([]);
+setStudents([]);
     const classroom = e.target.value;
     if (classroom) {
       setselectedClassroom(classroom);
@@ -376,7 +391,8 @@ const Filter = ({ setSearchParam, paramObj }) => {
         <select
           className='select'
           placeholder='Select a unit'
-          disabled={units.length === 0 || selectedClassroom !== ''}
+          //added selectedGrade into disabled
+          //disabled={!selectedGrade||units.length === 0 || selectedClassroom !== ''}
           onChange={onUnitChange}
         >
           <option key='empty' value=''>
@@ -391,7 +407,7 @@ const Filter = ({ setSearchParam, paramObj }) => {
         <select
           className='select'
           placeholder='Select a lesson'
-          disabled={ls.length === 0}
+          //disabled={!selectedUnit||ls.length === 0}
           onChange={(e) => {
             setselectedLs(e.target.value);
           }}
@@ -409,7 +425,8 @@ const Filter = ({ setSearchParam, paramObj }) => {
         <select
           className='select'
           placeholder='Select a classroom'
-          disabled={classrooms.length === 0 || selectedUnit !== ''}
+          //added SelectedGrade into disabled
+          //disabled={!selectedGrade||classrooms.length === 0 || selectedUnit !== ''}
           onChange={onClassroomChange}
         >
           <option key='empty' value=''>
@@ -424,7 +441,8 @@ const Filter = ({ setSearchParam, paramObj }) => {
         <select
           className='select'
           placeholder='Select a student'
-          disabled={students.length === 0}
+          //Added
+          //disabled={!selectedClassroom||students.length === 0}
           onChange={(e) => {
             setselectedStudent(e.target.value);
           }}
