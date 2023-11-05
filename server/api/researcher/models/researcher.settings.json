@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "researchers",
+  "info": {
+    "name": "Researcher"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "studies": {
+      "collection": "study"
+    },
+    "users_permissions_users": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "researchers",
+      "dominant": true
+    }
+  }
+}
