@@ -675,6 +675,9 @@
               "last_logged_in": {
                 "type": "string"
               },
+              "consent_assent": {
+                "type": "boolean"
+              },
               "created_by": {
                 "type": "string"
               },

@@ -784,6 +784,9 @@
           "last_logged_in": {
             "type": "string",
             "format": "date-time"
+          },
+          "consent_assent": {
+            "type": "boolean"
           }
         }
       },
@@ -814,6 +817,9 @@
           "last_logged_in": {
             "type": "string",
             "format": "date-time"
+          },
+          "consent_assent": {
+            "type": "boolean"
           },
           "created_by": {
             "type": "string"
