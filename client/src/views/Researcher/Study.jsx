@@ -9,60 +9,60 @@ import { useGlobalState } from '../../Utils/userState';
 import { useNavigate } from 'react-router-dom';
 
 export default function Study() {
-  const [classrooms, setClassrooms] = useState([]);
+  const [studies, setStudies] = useState([]);
   const [value] = useGlobalState('currUser');
   const navigate = useNavigate();
 
   useEffect(() => {
-    let classroomIds = [];
-    getMentor().then((res) => {
-      if (res.data) {
-        res.data.classrooms.forEach((classroom) => {
-          classroomIds.push(classroom.id);
-        });
-        getClassrooms(classroomIds).then((classrooms) => {
-          setClassrooms(classrooms);
-        });
-      } else {
-        message.error(res.err);
-        navigate('/teacherlogin');
-      }
-    });
+      let studyids = [];
+      getResearcher().then((res) => {
+          if (res.data) {
+              res.data.studies.forEach((study) => {
+                  studyids.push(study.id);
+              });
+              getStudies(studyids).then((studies) => {
+                  setStudies(studies);
+              });
+          } else {
+              message.error(res.err);
+              navigate('/teacherlogin');
+          }
+      });
   }, []);
 
-  const handleViewClassroom = (classroomId) => {
-    navigate(`/classroom/${classroomId}`);
+  const handleViewStudy = (studyId) => {
+      navigate(`/study/${studyId}`);
   };
 
   return (
-    <div className='container nav-padding'>
-      <NavBar />
-      <div id='main-header'>Welcome {value.name}</div>
-      <MentorSubHeader title={'Your Classrooms'}></MentorSubHeader>
-      <div id='classrooms-container'>
-        <div id='dashboard-card-container'>
-          {classrooms.map((classroom) => (
-            <div key={classroom.id} id='dashboard-class-card'>
-              <div id='card-left-content-container'>
-                <h1 id='card-title'>{classroom.name}</h1>
-                <div id='card-button-container' className='flex flex-row'>
-                  <button onClick={() => handleViewClassroom(classroom.id)}>
-                    View
-                  </button>
-                </div>
+      <div className='container nav-padding'>
+          <NavBar />
+          <div id='main-header'>Welcome {value.name}</div>
+          <MentorSubHeader title={'Your studies'}></MentorSubHeader>
+          <div id='studies-container'>
+              <div id='dashboard-card-container'>
+                  {studies.map((study) => (
+                      <div key={study.id} id='dashboard-class-card'>
+                          <div id='card-left-content-container'>
+                              <h1 id='card-title'>{study.name}</h1>
+                              <div id='card-button-container' className='flex flex-row'>
+                                  <button onClick={() => handleViewstudy(study.id)}>
+                                      View
+                                  </button>
+                              </div>
+                          </div>
+                          <div id='card-right-content-container'>
+                              <DashboardDisplayCodeModal code={study.code} />
+                              <div id='divider' />
+                              <div id='student-number-container'>
+                                  <h1 id='number'>{study.students.length}</h1>
+                                  <p id='label'>Students</p>
+                              </div>
+                          </div>
+                      </div>
+                  ))}
               </div>
-              <div id='card-right-content-container'>
-                <DashboardDisplayCodeModal code={classroom.code} />
-                <div id='divider' />
-                <div id='student-number-container'>
-                  <h1 id='number'>{classroom.students.length}</h1>
-                  <p id='label'>Students</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+          </div>
       </div>
-    </div>
   );
 }
