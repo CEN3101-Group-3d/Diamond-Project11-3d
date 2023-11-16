@@ -1,68 +1,68 @@
 import React, { useEffect, useState } from 'react';
-import { getResearcher, getStudies } from '/src/Utils/requests';
+import { getMentor, getClassrooms } from '../../Utils/requests';
 import { message } from 'antd';
-import '/src/views/mentor/Dashboard/Dashboard.less';
-import DashboardDisplayCodeModal from '/src/views/mentor/Dashboard/DashboardDisplayCodeModal';
-import MentorSubHeader from '/src/components/MentorSubHeader/MentorSubHeader';
-import NavBar from '/src/components/NavBar/NavBar';
-import { useGlobalState } from '/src/Utils/userState';
+import './Study.less';
+import DashboardDisplayCodeModal from '../Mentor/Dashboard/DashboardDisplayCodeModal';
+import MentorSubHeader from '../../components/MentorSubHeader/MentorSubHeader';
+import NavBar from '../../components/NavBar/NavBar';
+import { useGlobalState } from '../../Utils/userState';
 import { useNavigate } from 'react-router-dom';
 
-export default function Dashboard() {
-    const [studies, setStudies] = useState([]);
-    const [value] = useGlobalState('currUser');
-    const navigate = useNavigate();
+export default function Study() {
+  const [classrooms, setClassrooms] = useState([]);
+  const [value] = useGlobalState('currUser');
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        let studyids = [];
-        getResearcher().then((res) => {
-            if (res.data) {
-                res.data.studies.forEach((study) => {
-                    studyids.push(study.id);
-                });
-                getStudies(studyids).then((studies) => {
-                    setStudies(studies);
-                });
-            } else {
-                message.error(res.err);
-                navigate('/teacherlogin');
-            }
+  useEffect(() => {
+    let classroomIds = [];
+    getMentor().then((res) => {
+      if (res.data) {
+        res.data.classrooms.forEach((classroom) => {
+          classroomIds.push(classroom.id);
         });
-    }, []);
+        getClassrooms(classroomIds).then((classrooms) => {
+          setClassrooms(classrooms);
+        });
+      } else {
+        message.error(res.err);
+        navigate('/teacherlogin');
+      }
+    });
+  }, []);
 
-    const handleViewStudy = (studyId) => {
-        navigate(`/study/${studyId}`);
-    };
+  const handleViewClassroom = (classroomId) => {
+    navigate(`/classroom/${classroomId}`);
+  };
 
-    return (
-        <div className='container nav-padding'>
-            <NavBar />
-            <div id='main-header'>Welcome {value.name}</div>
-            <MentorSubHeader title={'Your studies'}></MentorSubHeader>
-            <div id='studies-container'>
-                <div id='dashboard-card-container'>
-                    {studies.map((study) => (
-                        <div key={study.id} id='dashboard-class-card'>
-                            <div id='card-left-content-container'>
-                                <h1 id='card-title'>{study.name}</h1>
-                                <div id='card-button-container' className='flex flex-row'>
-                                    <button onClick={() => handleViewstudy(study.id)}>
-                                        View
-                                    </button>
-                                </div>
-                            </div>
-                            <div id='card-right-content-container'>
-                                <DashboardDisplayCodeModal code={study.code} />
-                                <div id='divider' />
-                                <div id='student-number-container'>
-                                    <h1 id='number'>{study.students.length}</h1>
-                                    <p id='label'>Students</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+  return (
+    <div className='container nav-padding'>
+      <NavBar />
+      <div id='main-header'>Welcome {value.name}</div>
+      <MentorSubHeader title={'Your Classrooms'}></MentorSubHeader>
+      <div id='classrooms-container'>
+        <div id='dashboard-card-container'>
+          {classrooms.map((classroom) => (
+            <div key={classroom.id} id='dashboard-class-card'>
+              <div id='card-left-content-container'>
+                <h1 id='card-title'>{classroom.name}</h1>
+                <div id='card-button-container' className='flex flex-row'>
+                  <button onClick={() => handleViewClassroom(classroom.id)}>
+                    View
+                  </button>
                 </div>
+              </div>
+              <div id='card-right-content-container'>
+                <DashboardDisplayCodeModal code={classroom.code} />
+                <div id='divider' />
+                <div id='student-number-container'>
+                  <h1 id='number'>{classroom.students.length}</h1>
+                  <p id='label'>Students</p>
+                </div>
+              </div>
             </div>
+          ))}
         </div>
-    );
+      </div>
+    </div>
+  );
 }

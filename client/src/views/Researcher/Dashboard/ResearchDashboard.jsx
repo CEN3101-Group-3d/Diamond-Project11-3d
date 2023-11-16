@@ -23,6 +23,15 @@ export default function ResearchDashboard(props) {
             Reports
           </button>
         </Link>
+        <Link to={'/study'}>
+          <button
+            id={'route-button'}
+            className={`btn-${'primary'} btn-${'sm'}`}
+            type='button'
+          >
+            Studies
+          </button>
+        </Link>
       </div>
     </div>
   );
