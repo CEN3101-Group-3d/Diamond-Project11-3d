@@ -20,6 +20,7 @@ import ForgetPassword from './views/TeacherLogin/ForgetPassword';
 import ResetPassword from './views/TeacherLogin/ResetPassword';
 import TeacherLogin from './views/TeacherLogin/TeacherLogin';
 import ResearchDashboard from './views/Researcher/Dashboard/ResearchDashboard';
+import Study from './views/Researcher/Study';
 
 const App = () => {
   return (
@@ -46,6 +47,14 @@ const App = () => {
           element={
             <PrivateRoute>
               <Report />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path='/study'
+          element={
+            <PrivateRoute>
+              <Study />
             </PrivateRoute>
           }
         />
