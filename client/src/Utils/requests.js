@@ -109,7 +109,7 @@ export const getMentor = async () =>
     method: GET,
     path: `${server}/classroom-managers/me`,
     auth: true,
-    error: 'Your classroom manager information could not be retrieved.',
+    error: 'Studies Under Construction',
   });
 
 export const getClassroom = async (id) =>
