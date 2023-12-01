@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getMentor, getstudies } from '../../Utils/requests';
+import { getMentor, getClassrooms } from '../../Utils/requests';
 import { message } from 'antd';
 import './Study.less';
 import DashboardDisplayCodeModal from '../Mentor/Dashboard/DashboardDisplayCodeModal';
@@ -20,12 +20,12 @@ export default function Study() {
                 res.data.studies.forEach((study) => {
                     studyIDs.push(study.id);
                 });
-                getstudies(studyIDs).then((studies) => {
+                getClassrooms(studyIDs).then((studies) => {
                     setstudies(studies);
                 });
             } else {
                 message.error(res.err);
-                navigate('/teacherlogin');
+                navigate('/research-dashboard');
             }
         });
     }, []);
