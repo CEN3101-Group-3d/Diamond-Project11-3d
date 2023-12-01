@@ -16,6 +16,10 @@
     },
     "students": {
       "collection": "student"
+    },
+    "researcher": {
+      "model": "researcher",
+      "via": "studies"
     }
   }
 }

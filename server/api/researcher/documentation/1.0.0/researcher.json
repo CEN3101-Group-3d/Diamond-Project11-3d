@@ -550,6 +550,9 @@
                     "type": "string"
                   }
                 },
+                "researcher": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },

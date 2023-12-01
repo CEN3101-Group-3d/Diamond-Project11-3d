@@ -17,6 +17,7 @@
       "type": "string"
     },
     "studies": {
+      "via": "researcher",
       "collection": "study"
     },
     "users_permissions_users": {
