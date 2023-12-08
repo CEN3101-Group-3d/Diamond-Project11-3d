@@ -29,6 +29,33 @@ Cloud-based programming interface
 > The project is divided into three conceptual environments.
 
 ### Development
+Diamond-Project11-Group3d
+The major features we worked on implementing include:
+● Researcher dashboard- will include an overview of studies and data from those
+studies for quick and easy viewing, as well as easy comparison with other studies
+being conducted by the researcher.
+
+● Consent/Assent Tracking- students consent/assent will be tracked and easily
+viewable in either a webpage or pdf format (the latter would make it more
+exportable and sharable in the event of an issue).
+
+● Studies- a structure that can hold multiple classrooms and their students in order to
+track their data and code usage for analysis of the efficacy of the CASMM app as
+a whole. (not fully implemented)
+
+● Code replays- researcher will be able to view the code replays (imaged viewing
+form of coding assignment progress) for the classrooms and students that are a
+part of their study.
+
+● Grades- researcher will be able to view the average grade of the class as well as
+the individual grades of students in order to assess facets of their studies. (not implemented, would be on activity/study screen)
+
+Pictures of implemented features can be found in the complete documentation: [here](https://docs.google.com/document/d/1-3U1kdGl_aBX5cvzIGDPaPsxVv9zK3HZ/edit?usp=sharing&ouid=105195483003743120752&rtpof=true&sd=true).
+
+Outstanding work: The studies feature is not fully implemented, and more testing needs to be done on the student filter to see if decoupling is possible.
+
+All our work was built upon the existing CASMM app and the associated code of the other roles available.
+
 #### Structure
 
 The development environment is composed of five servers. The first one is run with the [Create React App](https://create-react-app.dev/docs/getting-started/) dev server. The later four are containerized with docker and run with [docker compose](https://docs.docker.com/compose/).
@@ -45,7 +72,7 @@ The development environment is composed of five servers. The first one is run wi
 
 * `casmm-compile_queue-dev`
 
-#### Running
+#### Running the project locally
 
 `casmm-client-dev`
 
@@ -62,6 +89,8 @@ The development environment is composed of five servers. The first one is run wi
    
 
 ### Staging
+
+No database or server connections to update.
 
 #### Structure
 
