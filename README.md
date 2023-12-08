@@ -29,8 +29,8 @@ Cloud-based programming interface
 > The project is divided into three conceptual environments.
 
 ### Development
-Diamond-Project11-Group3d
-The major features we worked on implementing include:
+Diamond-Project11-Group3d <br/>
+The major features we worked on implementing include: <br/>
 ● Researcher dashboard- will include an overview of studies and data from those
 studies for quick and easy viewing, as well as easy comparison with other studies
 being conducted by the researcher.
